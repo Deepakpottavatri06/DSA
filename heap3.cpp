@@ -69,6 +69,7 @@ class max_heap{
     
 };
 void heapify(int arr[], int n , int i){
+        // n - no of elements in arr. (arrSize -1 , since no element stored at 0)
         int largest  = i;
         int leftc= 2*i; // leftchild
         int rightc = 2*i +1; // rightchild
@@ -123,10 +124,10 @@ void heap_sorter(int arr[], int n){
 void heap_sort(int arr[] ,int arrSize){
      // for sorting 
     //1) heapify
-    //2) use heapsort
+    //2) use heapsorter
     for (int i = arrSize/2; i > 0; i--)
     {
-        heapify(arr, arrSize, i);
+        heapify(arr, arrSize-1, i);
         
     }
     heap_sorter(arr,arrSize -1 );
@@ -145,16 +146,27 @@ int main(){
     // h.deleteFromHeap();
     // h.print();
     int arr[] = {-1 , 85, 105, 95 , 75 , 115, 109};
+    
     int arrSize = sizeof(arr)/sizeof(arr[0]);
+
+    
+    
 
     for (int i = 1; i < arrSize ; i++)
     {
             h.insert(arr[i]);        
     }
+
+    for (int i = arrSize/2; i > 0; i--)
+    {       
+        heapify(arr,6,i);
+    }
+
+    h.deleteFromHeap();
     h.print();
 
-    heap_sort(arr,arrSize);
-    cout<<"sorted array using heap sort :"<<endl;
+    // heap_sort(arr,arrSize);
+    // cout<<"sorted array using heap sort :"<<endl;
     for (int i = 1; i < arrSize ; i++)
     {
         cout<<arr[i]<<" ";
