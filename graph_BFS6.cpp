@@ -94,8 +94,8 @@ int main() {
 
     for(int i = 0 ; i < g.vertices.size();i++){ // this loop is used in case if graph is disconnected.
         g.BFS(g.vertices[i],vist);
-    // }
-   g.print_adjL();
+    }
+//    g.print_adjL();
 
     return 0;
 }
