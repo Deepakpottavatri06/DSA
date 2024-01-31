@@ -4,6 +4,7 @@
 #include<unordered_map>
 #include<list>
 #include<set>
+#include<stack>
 using namespace std;
 
 class graph{
@@ -66,6 +67,29 @@ class graph{
         
     }
 
+    void DFS_using_stack(int vertex, unordered_map<int,bool> &visited){
+        stack <int> s;
+        if(!visited[vertex]){
+            s.push(vertex);
+            visited[vertex]=true;
+        }
+
+        while(!s.empty()){
+            int top =  s.top();
+            s.pop();
+            cout << top << " ";
+            for(auto it = adjList[top].begin() ; it!=adjList[top].end(); it++){
+                if(!visited[*it]){
+                    s.push(*it);
+                    visited[*it]=true;
+                }
+            }
+
+        }
+
+
+    }
+
 
 }
 ;
@@ -88,6 +112,13 @@ int main() {
     }
 
     g.DFS(0,vist);
+        for( int i=0; i < g.vertices.size();i++){
+        vist[g.vertices[i]] = false;
+    }
+    cout << endl;
+
+
+    g.DFS_using_stack(0,vist);
     
 
     return 0;
