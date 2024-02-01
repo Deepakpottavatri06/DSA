@@ -46,12 +46,15 @@ void merge_arrays(int *arr,int start,int end){
 }
 
 void merge( int *arr,int start , int end){
+    
     if(start>=end){
         return;
     }
     int mid = (start + end)/2;
+    //break the arrays
     merge(arr, start , mid);
     merge(arr,mid+1,end);
+    //merge the arrays
     merge_arrays(arr,start,end);
 }
 
