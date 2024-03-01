@@ -6,3 +6,4 @@ DSA topics
 5) graph
     - BFS traversal
     - DFS traversal
+    - dijkstra algorithm
