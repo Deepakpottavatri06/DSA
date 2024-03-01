@@ -107,13 +107,14 @@ int main() {
     
 
     unordered_map<int , bool > vist;
+
     for( int i=0; i < g.vertices.size();i++){
         vist[g.vertices[i]] = false;
     }
 
     g.DFS(0,vist);
-        for( int i=0; i < g.vertices.size();i++){
-        vist[g.vertices[i]] = false;
+        for( auto i : g.adjList){
+        vist[i.first] = false;
     }
     cout << endl;
 

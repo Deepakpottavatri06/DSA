@@ -17,7 +17,7 @@ int binary_search(int arr[] , int target , int size){
          }
          else{
             cout << target << " found at index "<< mid << endl;
-            return 1;
+            return mid;
          }
     }
     cout << target << " Not found "<< endl;
